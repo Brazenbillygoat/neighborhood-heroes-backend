@@ -18,7 +18,6 @@ class TasksController < ApplicationController
   end
 
   def delete
-    # byebug
     if params["task_id"] == nil
       Task.last.destroy
     else
