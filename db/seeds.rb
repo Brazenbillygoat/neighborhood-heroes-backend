@@ -12,21 +12,21 @@ hyrum = User.create(username: "Hyrum",
   email: "hyrum.butler3@gmail.com", 
   password: "password",
   zipcode: "23220",
-  profile_pic: "TBD"
+  profile_pic: Faker::Avatar.image
 )
 
 jonathan = User.create(username: "Jonathan",
   email: "hyrum.butler3@gmail.com", 
   password: "password",
   zipcode: "23220",
-  profile_pic: "TBD"
+  profile_pic: Faker::Avatar.image
 )
 
 15.times{ User.create(username: Faker::Name.name,
   email: "hyrum.butler3@gmail.com", 
   password: "password",
   zipcode: "23220",
-  profile_pic: "TBD"
+  profile_pic: Faker::Avatar.image
 )}
 
 tourney = Tournament.create(name: "Weekend Cleanup",
