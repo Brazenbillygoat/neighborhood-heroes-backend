@@ -15,4 +15,8 @@ class RelationshipsController < ApplicationController
     end
   end
 
+  def delete
+    
+  end
+
 end
