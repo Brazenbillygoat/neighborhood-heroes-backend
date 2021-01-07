@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get '/friends', to: 'relationship#index'
   post '/relationship/friend', to: 'relationships#create'
+  post '/relationship/unfriend', to: 'relationship#delete'
 
   get '/tasks', to: 'tasks#index'
   post '/tasks/create', to: 'tasks#create'

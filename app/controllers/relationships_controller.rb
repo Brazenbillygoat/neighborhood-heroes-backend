@@ -16,6 +16,7 @@ class RelationshipsController < ApplicationController
   end
 
   def delete
+    byebug
     Relationship.find_by(
       follower_id: params["follower_id"],
       followed_id: params["followed_id"]
