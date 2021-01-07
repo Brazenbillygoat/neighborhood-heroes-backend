@@ -16,15 +16,18 @@ class RelationshipsController < ApplicationController
   end
 
   def delete
-    byebug
-    Relationship.find_by(
+    if (record_to_delete = Relationship.find_by(
       follower_id: params["follower_id"],
       followed_id: params["followed_id"]
-    ).destroy
-    Relationship.find_by(
+    ))
+      record_to_delete.destroy
+    end
+    if (record_to_delete = Relationship.find_by(
       follower_id: params["followed_id"],
       followed_id: params["follower_id"]
-    ).destroy
+    ))
+      record_to_delete.destroy
+    end
   end
 
 end
