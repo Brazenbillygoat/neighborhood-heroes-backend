@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     user = User.find_by(username: params["name"])
     if user && user.authenticate(params["password"])
-      render json: user.to_json( {include: [:tasks, :tournaments]})
+      render json: user.to_json( {include: [:tasks, :tournaments, :followers, :followed]})
     else
       render json: "No user found"
     end
