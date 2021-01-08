@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     users = User.all
-    render json: users.to_json( {include: [:completed_tasks, :tournaments, :tasks, :followers]})
+    render json: users.to_json( {include: [:completed_tasks, :tournaments, :tasks, :followers, :followed]})
   end
 
   def show
