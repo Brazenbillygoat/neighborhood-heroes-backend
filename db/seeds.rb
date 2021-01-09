@@ -28,6 +28,9 @@ jonathan = User.create(username: "Jonathan",
   zipcode: "23220",
   profile_pic: Faker::Avatar.image
 )}
+userIdsArray = User.all.map do |user|
+  user.id
+end
 
 tourney = Tournament.create(name: "Weekend Cleanup",
   description: "Sanitary collection equipment will be provided, as well as refreshments.
@@ -42,12 +45,27 @@ tourney2 = Tournament.create(name: "Keep the coffee coming",
   start_date: "November 17, 2020 16:35",
   end_date: "December 18, 2021 16:35"
 )
+tourney3 = Tournament.create(name: "Caring for the puppy",
+  description: "The new puppy needs to be trained and loved.",
+  creator_id: hyrum.id,
+  start_date: "November 17, 2020 16:35",
+  end_date: "December 18, 2021 16:35"
+)
+tourney4 = Tournament.create(name: "Clean the kitchen",
+  description: "Dinner was great! Now for the fun part... right?",
+  creator_id: hyrum.id,
+  start_date: "November 17, 2020 16:35",
+  end_date: "December 18, 2021 16:35"
+)
 Tournament.create(name: "Keep the coffee coming",
   description: "Tasks involved with keeping the coffee pot full. The winner gets a starbucks gift card.",
   creator_id: hyrum.id,
   start_date: "November 17, 2020 16:35",
   end_date: "November 18, 2020 16:35"
 )
+tournamentIdsArray = Tournament.all.map do |tournament|
+  tournament.id
+end
 
 Task.create(name: "Pick up litter",
   creator_id: hyrum.id,
@@ -76,6 +94,16 @@ Task.create(name: "Weed the community garden",
 )
        
 # ADDING TOURNAMENT MEMBER WITH COMPLETED TASK
+15.times{ newComp = Competition.new(
+  tournament_id: tournamentIdsArray.sample(),
+  user_id: userIdsArray.sample()
+)
+if Competition.all.find {|comp| comp.tournament_id == newComp.tournament_id && comp.user_id == newComp.user_id }
+  next
+else
+  newComp.save()
+end
+}
 Competition.create(
   tournament_id: tourney.id,
   user_id: jonathan.id
