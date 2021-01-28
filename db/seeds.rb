@@ -92,7 +92,15 @@ Task.create(name: "Weed the community garden",
   limit: 20,
   tournament_id: tourney.id
 )
-       
+ 
+grind_coffee = Task.create(name: "Grind some fresh beans",
+  creator_id: hyrum.id,
+  
+  points: 115,
+  limit: 20,
+  tournament_id: tourney2.id
+)
+
 # ADDING TOURNAMENT MEMBER WITH COMPLETED TASK
 15.times{ newComp = Competition.new(
   tournament_id: tournamentIdsArray.sample(),
@@ -112,4 +120,13 @@ Competition.create(
 CompletedTask.create(
   task_id: separate_recycling.id,
   user_id: jonathan.id
+)
+Competition.create(
+  tournament_id: tourney2.id,
+  user_id: hyrum.id
+)
+
+CompletedTask.create(
+  task_id: grind_coffee.id,
+  user_id: hyrum.id
 )
