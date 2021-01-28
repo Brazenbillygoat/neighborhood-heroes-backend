@@ -57,7 +57,7 @@ tourney4 = Tournament.create(name: "Clean the kitchen",
   start_date: "November 17, 2020 16:35",
   end_date: "December 18, 2021 16:35"
 )
-Tournament.create(name: "Keep the coffee coming",
+tourney5 = Tournament.create(name: "Keep the coffee coming",
   description: "Tasks involved with keeping the coffee pot full. The winner gets a starbucks gift card.",
   creator_id: hyrum.id,
   start_date: "November 17, 2020 16:35",
@@ -98,7 +98,7 @@ grind_coffee = Task.create(name: "Grind some fresh beans",
   
   points: 115,
   limit: 20,
-  tournament_id: tourney2.id
+  tournament_id: tourney5.id
 )
 
 # ADDING TOURNAMENT MEMBER WITH COMPLETED TASK
@@ -122,7 +122,7 @@ CompletedTask.create(
   user_id: jonathan.id
 )
 Competition.create(
-  tournament_id: tourney2.id,
+  tournament_id: tourney5.id,
   user_id: hyrum.id
 )
 
