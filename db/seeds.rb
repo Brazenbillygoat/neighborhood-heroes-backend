@@ -92,10 +92,9 @@ Task.create(name: "Weed the community garden",
   limit: 20,
   tournament_id: tourney.id
 )
- 
+
 grind_coffee = Task.create(name: "Grind some fresh beans",
   creator_id: hyrum.id,
-  
   points: 115,
   limit: 20,
   tournament_id: tourney5.id
