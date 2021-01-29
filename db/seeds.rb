@@ -63,6 +63,12 @@ tourney5 = Tournament.create(name: "Keep the coffee coming",
   start_date: "November 17, 2020 16:35",
   end_date: "November 18, 2020 16:35"
 )
+tourney6 = Tournament.create(name: "The great week of running",
+  description: "Two colleagues thought they could run further than eachother within one week. Thus began, 'The great week of running'.",
+  creator_id: hyrum.id,
+  start_date: "November 17, 2020 16:35",
+  end_date: "December 18, 2020 16:35"
+)
 tournamentIdsArray = Tournament.all.map do |tournament|
   tournament.id
 end
@@ -99,6 +105,18 @@ grind_coffee = Task.create(name: "Grind some fresh beans",
   limit: 20,
   tournament_id: tourney5.id
 )
+mile_run = Task.create(name: "one mile",
+  creator_id: hyrum.id,
+  points: 5,
+  limit: 20,
+  tournament_id: tourney6.id
+)
+five_mile_run = Task.create(name: "five miles",
+  creator_id: hyrum.id,
+  points: 35,
+  limit: 20,
+  tournament_id: tourney6.id
+)
 
 # ADDING TOURNAMENT MEMBER WITH COMPLETED TASK
 15.times{ newComp = Competition.new(
@@ -128,4 +146,14 @@ Competition.create(
 CompletedTask.create(
   task_id: grind_coffee.id,
   user_id: hyrum.id
+)
+
+Competition.create(
+  tournament_id: tourney6.id,
+  user_id: jonathan.id
+)
+
+CompletedTask.create(
+  task_id: five_mile_run.id,
+  user_id: jonathan.id
 )
